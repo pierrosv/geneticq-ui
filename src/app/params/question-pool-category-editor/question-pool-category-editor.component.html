@@ -1,0 +1,43 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="{{'MENUITEMS.PARAMS.QUESTION_POOL_CATEGORY' | translate}}"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">{{action}}</h4>
+          <form (ngSubmit)="save()" [formGroup]="programTypeForm">
+            <div data-repeater-list="outer-group" class="outer">
+              <div data-repeater-item class="outer">
+                <div class="row mb-4">
+                  <label for="name" class="col-form-label col-lg-2">{{'GENERIC.NAME' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="name" name="name" type="text" formControlName="name" class="form-control" placeholder="Ονομασία...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="description" class="col-form-label col-lg-2">{{'GENERIC.DESCRIPTION' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="description" name="description" type="text" formControlName="description" class="form-control" placeholder="Ονομασία...">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-lg-10">
+                <button type="submit" class="btn btn-primary">{{'GENERIC.SAVE' | translate}}</button>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->
