@@ -3,6 +3,8 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {QuestionPoolForListModel, QuestionPoolModel} from "../models/question-pool";
+import {QuestionnaireTemplateForListModel, QuestionnaireTemplateModel} from "../models/questionnaire-template";
+import {QuestionForListModel} from "../models/question";
 
 @Injectable({
   providedIn: 'root'
@@ -29,5 +31,29 @@ export class AdminService {
       return this.http.post<QuestionPoolModel>(fullUrl, category);
     }
     return this.http.put<QuestionPoolModel>(fullUrl, category);
+  }
+
+  getAllQuestionnaireTemplates(): Observable<QuestionnaireTemplateForListModel[]> {
+    return this.http.get<QuestionnaireTemplateForListModel[]>(`${environment.apiUrl}/${environment.questionnaireTemplateUrl}`);
+  }
+
+  getQuestionnaireTemplateById(id: number): Observable<QuestionnaireTemplateModel> {
+    return this.http.get<QuestionnaireTemplateModel>(`${environment.apiUrl}/${environment.questionnaireTemplateUrl}/${id}`);
+  }
+
+  deleteQuestionnaireTemplateById(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${environment.apiUrl}/${environment.questionnaireTemplateUrl}/${id}`);
+  }
+
+  saveQuestionnaireTemplate(category: QuestionnaireTemplateModel):Observable<QuestionnaireTemplateModel> {
+    const fullUrl = `${environment.apiUrl}/${environment.questionnaireTemplateUrl}/`;
+    if (category.id <= 0) {
+      return this.http.post<QuestionnaireTemplateModel>(fullUrl, category);
+    }
+    return this.http.put<QuestionnaireTemplateModel>(fullUrl, category);
+  }
+
+  getAllQuestions(): Observable<QuestionForListModel[]> {
+    return this.http.get<QuestionForListModel[]>(`${environment.apiUrl}/${environment.questionPoolUrl}/get-all-questions`);
   }
 }

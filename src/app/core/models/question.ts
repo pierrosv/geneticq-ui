@@ -21,3 +21,8 @@ export class QuestionAnswerOptionModel {
   title: string;
   appearanceOrder: number;
 }
+
+export class QuestionForListModel {
+  id: number;
+  title: string;
+}

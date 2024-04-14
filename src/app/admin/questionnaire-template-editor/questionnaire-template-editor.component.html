@@ -1,1 +1,80 @@
-<p>questionnaire-template-editor works!</p>
+<div class="container-fluid">
+  <app-page-title title="{{'MENUITEMS.QUESTIONNAIRE_ADMIN.QUESTIONNAIRE_TEMPLATE' | translate}}"></app-page-title>
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">{{action}}</h4>
+          <form (ngSubmit)="save()" [formGroup]="questionnaireTemplateForm">
+            <div data-repeater-list="outer-group" class="outer">
+              <div data-repeater-item class="outer">
+                <div class="row mb-4">
+                  <label for="name" class="col-form-label col-lg-2">{{'GENERIC.NAME' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="name" name="name" type="text" formControlName="name" class="form-control" placeholder="Ονομασία...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="description" class="col-form-label col-lg-2">{{'GENERIC.DESCRIPTION' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="description" name="description" type="text" formControlName="description" class="form-control" placeholder="Ονομασία...">
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col-lg-10">
+                  <button type="button" class="btn btn-dark" (click)="createQuestion()">{{'MENUITEMS.QUESTIONNAIRE_ADMIN.ADD_QUESTION' | translate}}</button>
+                </div>
+              </div>
+              <div *ngIf="questionnaireTemplate && questionnaireTemplate.questions">
+                @for(questionOnTemplate of questionnaireTemplate.questions; track questionOnTemplate; let i=$index)
+                {
+                  <app-question-add
+                    [question]="questionOnTemplate"
+                    [questions]="questions"
+                  >
+
+                  </app-question-add>
+                  <div class="col-md-2 col-2">
+                    <div class="d-grid">
+                      <input type="button" class="btn btn-primary inner" value="Delete Question" (click)="deleteQuestion(i)">
+                    </div>
+                  </div>
+<!--                  <div class="row">-->
+<!--                    <div class="col-md-10 col-6">-->
+<!--                      <div class="row mb-4">-->
+<!--                        <label for="questionId" class="col-form-label col-lg-2">{{'GENERIC.QUESTION' | translate}}</label>-->
+<!--                        <div class="col-lg-10">-->
+<!--                          <select class="form-select" id="questionId" name="questionId" [(ngModel)]="questionOnTemplate.questionId">-->
+<!--                            <option *ngFor="let question of questions" [value]="question.id">-->
+<!--                              {{question.title}}-->
+<!--                            </option>-->
+<!--                          </select>-->
+<!--                        </div>-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2 col-4">-->
+<!--                      <div class="d-grid">-->
+<!--                        <input type="button" class="btn btn-primary inner" value="Delete" (click)="deleteQuestion(i)">-->
+<!--                      </div>-->
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                    <br/>-->
+                }
+              </div>
+            </div>
+
+            <div class="row justify-content-end">
+              <div class="col-lg-10">
+                <button type="submit" class="btn btn-primary">{{'GENERIC.SAVE' | translate}}</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

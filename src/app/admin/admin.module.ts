@@ -15,6 +15,7 @@ import { QuestionDetailComponent } from './question-pool-editor/question-detail/
 import {AccordionModule} from "ngx-bootstrap/accordion";
 import { SubQuestionDetailComponent } from './question-pool-editor/sub-question-detail/sub-question-detail.component';
 import { QuestionOptionDetailComponent } from './question-pool-editor/question-option-detail/question-option-detail.component';
+import { QuestionAddComponent } from './questionnaire-template-editor/question-add/question-add.component';
 
 
 @NgModule({
@@ -25,7 +26,8 @@ import { QuestionOptionDetailComponent } from './question-pool-editor/question-o
     QuestionPoolEditorComponent,
     QuestionDetailComponent,
     SubQuestionDetailComponent,
-    QuestionOptionDetailComponent
+    QuestionOptionDetailComponent,
+    QuestionAddComponent
   ],
   imports: [
     CommonModule,

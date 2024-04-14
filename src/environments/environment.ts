@@ -7,6 +7,7 @@ export const environment = {
   apiUrl: 'https://localhost:7082/api/v1',
   questionPoolCategoryUrl: 'question-pool-category',
   questionPoolUrl: 'question-pool',
+  questionUrl: 'question',
   questionnaireTemplateUrl: 'questionnaire-template',
   staticDataUrl: 'static-data',
   defaultauth: 'fakebackend',
