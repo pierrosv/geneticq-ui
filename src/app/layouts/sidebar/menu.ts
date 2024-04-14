@@ -8,14 +8,33 @@ export const MENU: MenuItem[] = [
     },
     {
       id: 1000,
-      label: 'MENUITEMS.PARAMS.TEXT',
+      label: 'MENUITEMS.QUESTIONNAIRE_ADMIN.TEXT',
       icon: 'bx-file',
       subItems: [
         {
           id: 1001,
+          label: 'MENUITEMS.QUESTIONNAIRE_ADMIN.QUESTION_POOLS',
+          link: '/admin/question-pools',
+          parentId: 1000
+        },
+        {
+          id: 2001,
+          label: 'MENUITEMS.QUESTIONNAIRE_ADMIN.QUESTIONNAIRE_TEMPLATES',
+          link: '/admin/questionnaire-templates',
+          parentId: 2000
+        },
+      ]
+    },
+    {
+      id: 2000,
+      label: 'MENUITEMS.PARAMS.TEXT',
+      icon: 'bx-list-ul',
+      subItems: [
+        {
+          id: 2001,
           label: 'MENUITEMS.PARAMS.QUESTION_POOL_CATEGORIES',
           link: '/params/question-pool-categories',
-          parentId: 1000
+          parentId: 2000
         },
       ]
     },

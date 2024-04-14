@@ -3,6 +3,7 @@
 		"ACTIONS": "Actions",
 		"ADD": "Add",
 		"CANCEL": "Cancel",
+		"CATEGORY_NAME": "Category",
 		"DELETE": "Delete",
 		"DELETE_CONFIRMATION": "Are you sure you want to delete this record ?",
 		"DESCRIPTION": "Description",
@@ -300,6 +301,13 @@
 				"PROJECTLIST": "Projects List"
 			},
 			"TEXT": "Projects"
+		},
+		"QUESTIONNAIRE_ADMIN": {
+			"QUESTION_POOL": "Question Pool",
+			"QUESTION_POOLS": "Question Pools",
+			"QUESTIONNAIRE_TEMPLATE": "Questionnaire Template",
+			"QUESTIONNAIRE_TEMPLATES": "Questionnaire Templates",
+			"TEXT": "Questionnaires"
 		},
 		"TABLES": {
 			"LIST": {

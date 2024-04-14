@@ -6,6 +6,8 @@ export const environment = {
   production: false,
   apiUrl: 'https://localhost:7082/api/v1',
   questionPoolCategoryUrl: 'question-pool-category',
+  questionPoolUrl: 'question-pool',
+  questionnaireTemplateUrl: 'questionnaire-template',
   defaultauth: 'fakebackend',
   firebaseConfig: {
     apiKey: "",

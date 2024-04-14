@@ -11,7 +11,8 @@ const routes: Routes = [
   {
     path: 'question-pool-category-editor/:id',
     component: QuestionPoolCategoryEditorComponent
-  },];
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],

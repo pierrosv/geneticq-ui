@@ -5,9 +5,10 @@ import { ModalModule } from 'ngx-bootstrap/modal';
 
 import { StatComponent } from './stat/stat.component';
 import { TransactionComponent } from './transaction/transaction.component';
+import { QuestionComponent } from './question/question.component';
 
 @NgModule({
-  declarations: [StatComponent, TransactionComponent],
+  declarations: [StatComponent, TransactionComponent, QuestionComponent],
   imports: [
     CommonModule,
     ModalModule.forRoot()
