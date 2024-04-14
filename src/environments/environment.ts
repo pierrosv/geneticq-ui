@@ -8,6 +8,7 @@ export const environment = {
   questionPoolCategoryUrl: 'question-pool-category',
   questionPoolUrl: 'question-pool',
   questionnaireTemplateUrl: 'questionnaire-template',
+  staticDataUrl: 'static-data',
   defaultauth: 'fakebackend',
   firebaseConfig: {
     apiKey: "",

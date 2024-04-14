@@ -11,6 +11,10 @@ import {ReactiveFormsModule} from "@angular/forms";
 import {TranslateModule} from "@ngx-translate/core";
 import {UIModule} from "../shared/ui/ui.module";
 import {UiSwitchModule} from "ngx-ui-switch";
+import { QuestionDetailComponent } from './question-pool-editor/question-detail/question-detail.component';
+import {AccordionModule} from "ngx-bootstrap/accordion";
+import { SubQuestionDetailComponent } from './question-pool-editor/sub-question-detail/sub-question-detail.component';
+import { QuestionOptionDetailComponent } from './question-pool-editor/question-option-detail/question-option-detail.component';
 
 
 @NgModule({
@@ -18,7 +22,10 @@ import {UiSwitchModule} from "ngx-ui-switch";
     QuestionPoolsComponent,
     QuestionnaireTemplatesComponent,
     QuestionnaireTemplateEditorComponent,
-    QuestionPoolEditorComponent
+    QuestionPoolEditorComponent,
+    QuestionDetailComponent,
+    SubQuestionDetailComponent,
+    QuestionOptionDetailComponent
   ],
   imports: [
     CommonModule,
@@ -27,7 +34,8 @@ import {UiSwitchModule} from "ngx-ui-switch";
     ReactiveFormsModule,
     TranslateModule,
     UIModule,
-    UiSwitchModule
+    UiSwitchModule,
+    AccordionModule
   ]
 })
 export class AdminModule { }

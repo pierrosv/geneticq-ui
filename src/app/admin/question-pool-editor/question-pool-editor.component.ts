@@ -3,10 +3,13 @@ import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TranslateService} from "@ngx-translate/core";
 import Swal from "sweetalert2";
-import {QuestionPoolForListModel} from "../../core/models/question-pool";
+import {QuestionPoolForListModel, QuestionPoolModel} from "../../core/models/question-pool";
 import {AdminService} from "../../core/services/admin.service";
 import {ParamsService} from "../../core/services/params.service";
 import {QuestionPoolCategoryModel} from "../../core/models/question-pool-category";
+import {StaticDataService} from "../../core/services/static-data.service";
+import {StaticDataModel} from "../../core/models/static-data";
+import {QuestionModel} from "../../core/models/question";
 
 @Component({
   selector: 'app-question-pool-editor',
@@ -17,7 +20,8 @@ export class QuestionPoolEditorComponent  implements OnInit {
   id: number;
   action: string;
   questionPoolCategories: QuestionPoolCategoryModel[];
-  questionPool: QuestionPoolForListModel;
+  questionAnswerTypes: StaticDataModel[];
+  questionPool: QuestionPoolModel;
   programTypeForm!: UntypedFormGroup;
 
   constructor(private formBuilder: UntypedFormBuilder,
@@ -25,6 +29,7 @@ export class QuestionPoolEditorComponent  implements OnInit {
               private translateSrv: TranslateService,
               private adminSrv: AdminService,
               private paramsSrv: ParamsService,
+              private staticDataSrv: StaticDataService,
               private router: Router) {
   }
 
@@ -34,9 +39,11 @@ export class QuestionPoolEditorComponent  implements OnInit {
     if (this.id == -1) {
       this.action = this.translateSrv.instant('GENERIC.ADD')
     }
-    /**
-     * Form Validation
-     */
+
+    this.staticDataSrv.getQuestionAnswerTypes().subscribe(x=> {
+      this.questionAnswerTypes = x;
+    });
+
     this.paramsSrv.getAllQuestionPoolCategories().subscribe(x=> {
       this.questionPoolCategories = x;
     })
@@ -61,17 +68,16 @@ export class QuestionPoolEditorComponent  implements OnInit {
 
   save() {
     if (this.programTypeForm.valid) {
-      let questionPool = new QuestionPoolForListModel();
-      questionPool.id = -1;
-      questionPool.name = this.programTypeForm.get('name')?.value;
-      questionPool.description = this.programTypeForm.get('description')?.value;
-      questionPool.onCategoryId = this.programTypeForm.get('onCategoryId')?.value;
+      this.questionPool.id = -1;
+      this.questionPool.name = this.programTypeForm.get('name')?.value;
+      this.questionPool.description = this.programTypeForm.get('description')?.value;
+      this.questionPool.onCategoryId = this.programTypeForm.get('onCategoryId')?.value;
 
       if (this.id > 0 ) {
-        questionPool.id = this.id;
+        this.questionPool.id = this.id;
       }
 
-      this.adminSrv.saveQuestionPool(questionPool).subscribe( x => {
+      this.adminSrv.saveQuestionPool(this.questionPool).subscribe( x => {
         Swal.fire({
           icon: 'success',
           title: this.translateSrv.instant('GENERIC.SUCCESSFULLY_SAVED'),
@@ -93,6 +99,28 @@ export class QuestionPoolEditorComponent  implements OnInit {
         },
         buttonsStyling: true
       });
+    }
+  }
+
+  createQuestion() {
+    let newQuestion = new QuestionModel();
+    let appOrder = 0;
+    if (this.questionPool.questions.length > 0) {
+      for (let num of this.questionPool.questions) {
+        if (num.appearanceOrder > appOrder) {
+          appOrder = num.appearanceOrder; // Update the maxNumber if current number is greater
+        }
+      }
+    }
+
+    newQuestion.appearanceOrder = appOrder + 1;
+    this.questionPool.questions.push(newQuestion);
+  }
+
+  deleteQuestion(question) {
+    const index = this.questionPool.questions.indexOf(question, 0);
+    if (index > -1) {
+      this.questionPool.questions.splice(index, 1);
     }
   }
 }

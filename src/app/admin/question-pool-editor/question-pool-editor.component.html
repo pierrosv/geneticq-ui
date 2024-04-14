@@ -35,7 +35,30 @@
                   </div>
                 </div>
               </div>
+              <div class="row mb-4">
+                <div class="col-lg-10">
+                  <button type="button" class="btn btn-dark" (click)="createQuestion()">{{'MENUITEMS.QUESTIONNAIRE_ADMIN.ADD_QUESTION' | translate}}</button>
+                </div>
+              </div>
+              <div class="row mb-4" *ngIf="this.questionPool && this.questionPool.questions.length > 0">
+                <accordion [closeOthers]="true" class="accordion" [isAnimated]="true">
+                  <accordion-group heading="{{'GENERIC.QUESTION_NO' | translate}} # {{question.appearanceOrder}}" class="accordion-item" *ngFor="let question of this.questionPool.questions">
+                    <app-question-detail
+                      [question]="question"
+                      [questionAnswerTypes]="questionAnswerTypes"
+                    >
+
+                    </app-question-detail>
+                    <div class="row mb-4">
+                      <div class="col-lg-10">
+                        <button type="button" class="btn btn-danger" (click)="deleteQuestion(question)">{{'GENERIC.DELETE_QUESTION' | translate}}</button>
+                      </div>
+                    </div>
+                  </accordion-group>
+                </accordion>
+              </div>
             </div>
+
             <div class="row justify-content-end">
               <div class="col-lg-10">
                 <button type="submit" class="btn btn-primary">{{'GENERIC.SAVE' | translate}}</button>
