@@ -44,7 +44,7 @@ export class TopbarComponent implements OnInit {
 
   listLang: any = [
     { text: 'English', flag: 'assets/images/flags/us.jpg', lang: 'en' },
-    { text: 'Ελληνικά', flag: 'assets/images/flags/spain.jpg', lang: 'el' },
+    { text: 'Ελληνικά', flag: 'assets/images/flags/greek.png', lang: 'el' },
   ];
 
   openMobileMenu: boolean;
