@@ -14,6 +14,14 @@
 		"EMAIL": "E-mail",
 		"FIRSTNAME": "First Name",
 		"LASTNAME": "Last Name",
+		"LOGIN": {
+			"FORGOT_PASSWORD": "Forgot your password?",
+			"PASSWORD": "Password",
+			"REMEMBER_ME": "Remember me",
+			"SIGN_MESSAGE": "Sign in to continue to Genomedica Genetic Q.",
+			"TEXT": "Log In",
+			"WELCOME": "Welcome Back !"
+		},
 		"MOBILE": "Mobile",
 		"NAME": "Name",
 		"QUESTION": "Question",

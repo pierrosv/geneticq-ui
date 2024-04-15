@@ -24,6 +24,7 @@ import { RootReducerState } from 'src/app/store';
  */
 export class TopbarComponent implements OnInit {
   mode: any
+  username: string;
   element: any;
   cookieValue: any;
   flagvalue: any;
@@ -68,6 +69,7 @@ export class TopbarComponent implements OnInit {
     } else {
       this.flagvalue = val.map(element => element.flag);
     }
+    this.username = this.authService.getCurrentUserProfile.fullName;
   }
 
   setLanguage(text: string, lang: string, flag: string) {
