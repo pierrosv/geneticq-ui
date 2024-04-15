@@ -1,0 +1,73 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="{{'MENUITEMS.USER_LIST.DOCTOR' | translate}}"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">{{action}}</h4>
+          <form (ngSubmit)="save()" [formGroup]="programTypeForm">
+            <div data-repeater-list="outer-group" class="outer">
+              <div data-repeater-item class="outer">
+                <div class="row mb-4">
+                  <label for="firstName" class="col-form-label col-lg-2">{{'GENERIC.FIRSTNAME' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="firstName" name="firstName" type="text" formControlName="firstName" class="form-control" placeholder="{{'GENERIC.FIRSTNAME' | translate}}...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="lastName" class="col-form-label col-lg-2">{{'GENERIC.LASTNAME' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="lastName" name="lastName" type="text" formControlName="lastName" class="form-control" placeholder="{{'GENERIC.LASTNAME' | translate}}...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="mobilePhone" class="col-form-label col-lg-2">{{'GENERIC.MOBILE' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="mobilePhone" name="mobilePhone" type="text" formControlName="mobilePhone" class="form-control" placeholder="{{'GENERIC.MOBILE' | translate}}...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="workPhone" class="col-form-label col-lg-2">{{'GENERIC.WORKPHONE' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="workPhone" name="workPhone" type="text" formControlName="workPhone" class="form-control" placeholder="{{'GENERIC.WORKPHONE' | translate}}...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="specialty" class="col-form-label col-lg-2">{{'GENERIC.SPECIALTY' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="specialty" name="specialty" type="text" formControlName="specialty" class="form-control" placeholder="{{'GENERIC.SPECIALTY' | translate}}...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="subscribedOn" class="col-form-label col-lg-2">{{'GENERIC.SUBSCRIBEDON' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="subscribedOn" name="subscribedOn" type="text" formControlName="subscribedOn" class="form-control" placeholder="{{'GENERIC.SUBSCRIBEDON' | translate}}...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="subscriptionEndsAt" class="col-form-label col-lg-2">{{'GENERIC.SUBSCRIPTION_ENDS_AT' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="subscriptionEndsAt" name="subscriptionEndsAt" type="text" formControlName="subscriptionEndsAt" class="form-control" placeholder="{{'GENERIC.SUBSCRIPTION_ENDS_AT' | translate}}...">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row justify-content-end">
+              <div class="col-lg-10">
+                <button type="submit" class="btn btn-primary">{{'GENERIC.SAVE' | translate}}</button>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

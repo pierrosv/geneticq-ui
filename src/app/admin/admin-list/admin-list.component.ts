@@ -76,7 +76,7 @@ export class AdminListComponent  implements OnInit {
   }
 
   editRecord(id: number) {
-    this.router.navigate(['admin/admin-profile', id])
+    this.router.navigate(['admin/admin-editor', id])
   }
 
   // pagination

@@ -5,9 +5,9 @@ import {QuestionnaireTemplatesComponent} from "./questionnaire-templates/questio
 import {QuestionnaireTemplateEditorComponent} from "./questionnaire-template-editor/questionnaire-template-editor.component";
 import {QuestionPoolEditorComponent} from "./question-pool-editor/question-pool-editor.component";
 import {AdminListComponent} from "./admin-list/admin-list.component";
-import {RegisterAdminComponent} from "./register-admin/register-admin.component";
 import {DoctorListComponent} from "./doctor-list/doctor-list.component";
-import {RegisterDoctorComponent} from "./register-doctor/register-doctor.component";
+import {DoctorEditorComponent} from "./doctor-editor/doctor-editor.component";
+import {AdminEditorComponent} from "./admin-editor/admin-editor.component";
 
 const routes: Routes = [
   {
@@ -31,16 +31,16 @@ const routes: Routes = [
     component: AdminListComponent
   },
   {
-    path: 'register-admin',
-    component: RegisterAdminComponent
+    path: 'admin-editor/:id',
+    component: AdminEditorComponent
   },
   {
     path: 'doctor-list',
     component: DoctorListComponent
   },
   {
-    path: 'register-doctor',
-    component: RegisterDoctorComponent
+    path: 'doctor-editor/:id',
+    component: DoctorEditorComponent
   },
 ];
 

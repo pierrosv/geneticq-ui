@@ -12,6 +12,8 @@
 		"DESCRIPTION": "Description",
 		"EDIT": "Edit",
 		"EMAIL": "E-mail",
+		"FIRSTNAME": "First Name",
+		"LASTNAME": "Last Name",
 		"MOBILE": "Mobile",
 		"NAME": "Name",
 		"QUESTION": "Question",
@@ -23,11 +25,15 @@
 		"QUESTION_SUBQUESTIONS": "Sub-Questions",
 		"QUESTION_TITLE": "Question Title",
 		"SAVE": "Save",
+		"SPECIALTY": "Speciality",
+		"SUBSCRIBEDON": "Subscribed On",
+		"SUBSCRIPTION_ENDS_AT": "Subscription Ends At",
 		"SUCCESSFULLY_DELETED": "Successfully Deleted",
 		"SUCCESSFULLY_SAVED": "Successfully Saved",
 		"TITLE": "Title",
 		"UNABLE_TO_DELETE": "Unable to Delete Record",
-		"UNABLE_TO_SAVE": "Unable to Save Record"
+		"UNABLE_TO_SAVE": "Unable to Save Record",
+		"WORKPHONE": "Work Phone"
 	},
 	"HEADER": {
 		"APPLICATIONS": {
@@ -369,7 +375,9 @@
 			"TEXT": "UI Elements"
 		},
 		"USER_LIST": {
+			"ADMIN": "Administrator",
 			"ADMINS": "Administrators",
+			"DOCTOR": "Doctor",
 			"DOCTORS": "Doctors",
 			"TEXT": "Users"
 		},

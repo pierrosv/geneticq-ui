@@ -62,7 +62,31 @@ export class AdminService {
     return this.http.get<AdminModel[]>(`${environment.apiUrl}/${environment.adminUrl}/get-all-admins`);
   }
 
+  getAdminById(id: number): Observable<AdminModel> {
+    return this.http.get<AdminModel>(`${environment.apiUrl}/${environment.adminUrl}/get-admin/${id}`);
+  }
+
+  saveAdmin(admin: AdminModel):Observable<AdminModel> {
+    const fullUrl = `${environment.apiUrl}/${environment.adminUrl}/save-admin`;
+    if (admin.id <= 0) {
+      return this.http.post<AdminModel>(fullUrl, admin);
+    }
+    return this.http.put<AdminModel>(fullUrl, admin);
+  }
+
   getAllDoctors(): Observable<DoctorModel[]> {
     return this.http.get<DoctorModel[]>(`${environment.apiUrl}/${environment.adminUrl}/get-all-doctors`);
+  }
+
+  getDoctorById(id: number): Observable<DoctorModel> {
+    return this.http.get<DoctorModel>(`${environment.apiUrl}/${environment.adminUrl}/get-doctor/${id}`);
+  }
+
+  saveDoctor(doctor: DoctorModel):Observable<DoctorModel> {
+    const fullUrl = `${environment.apiUrl}/${environment.adminUrl}/save-doctor`;
+    if (doctor.id <= 0) {
+      return this.http.post<DoctorModel>(fullUrl, doctor);
+    }
+    return this.http.put<DoctorModel>(fullUrl, doctor);
   }
 }

@@ -76,7 +76,7 @@ export class DoctorListComponent  implements OnInit {
   }
 
   editRecord(id: number) {
-    this.router.navigate(['admin/admin-profile', id])
+    this.router.navigate(['admin/doctor-editor', id])
   }
 
   // pagination

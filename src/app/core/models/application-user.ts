@@ -18,6 +18,9 @@ export class DoctorModel {
   email: string;
   mobilePhone: string;
   workPhone: string;
+  specialty: string;
+  subscribedOn: Date;
+  subscriptionEndsAt: Date;
   roleLabel: string;
   role: string;
 }

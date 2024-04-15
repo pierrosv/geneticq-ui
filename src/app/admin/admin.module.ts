@@ -18,10 +18,9 @@ import { QuestionOptionDetailComponent } from './question-pool-editor/question-o
 import { QuestionAddComponent } from './questionnaire-template-editor/question-add/question-add.component';
 import { AdminListComponent } from './admin-list/admin-list.component';
 import { DoctorListComponent } from './doctor-list/doctor-list.component';
-import { RegisterDoctorComponent } from './register-doctor/register-doctor.component';
-import { RegisterAdminComponent } from './register-admin/register-admin.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
-import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { DoctorEditorComponent } from './doctor-editor/doctor-editor.component';
+import { AdminEditorComponent } from './admin-editor/admin-editor.component';
 
 
 @NgModule({
@@ -36,10 +35,9 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
     QuestionAddComponent,
     AdminListComponent,
     DoctorListComponent,
-    RegisterDoctorComponent,
-    RegisterAdminComponent,
     AdminProfileComponent,
-    DoctorProfileComponent
+    DoctorEditorComponent,
+    AdminEditorComponent
   ],
   imports: [
     CommonModule,
