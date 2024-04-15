@@ -24,6 +24,8 @@ import { AdminEditorComponent } from './admin-editor/admin-editor.component';
 import { RegisterAdminComponent } from './register-admin/register-admin.component';
 import { RegisterDoctorComponent } from './register-doctor/register-doctor.component';
 import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
+import {NgApexchartsModule} from "ng-apexcharts";
+import {WidgetModule} from "../shared/widget/widget.module";
 
 
 @NgModule({
@@ -45,18 +47,21 @@ import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.compo
         RegisterDoctorComponent,
         AdminDashboardComponent
     ],
-    exports: [
-        AdminDashboardComponent
-    ],
-    imports: [
-        CommonModule,
-        AdminRoutingModule,
-        ModalModule,
-        ReactiveFormsModule,
-        TranslateModule,
-        UIModule,
-        UiSwitchModule,
-        AccordionModule
-    ]
+  exports: [
+    AdminDashboardComponent,
+    AdminProfileComponent
+  ],
+  imports: [
+    CommonModule,
+    AdminRoutingModule,
+    ModalModule,
+    ReactiveFormsModule,
+    TranslateModule,
+    UIModule,
+    UiSwitchModule,
+    AccordionModule,
+    NgApexchartsModule,
+    WidgetModule
+  ]
 })
 export class AdminModule { }

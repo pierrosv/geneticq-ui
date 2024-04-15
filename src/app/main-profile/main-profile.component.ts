@@ -1,13 +1,12 @@
-import {Component, OnInit} from '@angular/core';
-import {Router} from "@angular/router";
+import { Component } from '@angular/core';
 import {AuthenticationService} from "../core/services/auth.service";
 
 @Component({
-  selector: 'app-main-dashboard',
-  templateUrl: './main-dashboard.component.html',
-  styleUrls: ['./main-dashboard.component.css']
+  selector: 'app-main-profile',
+  templateUrl: './main-profile.component.html',
+  styleUrls: ['./main-profile.component.css']
 })
-export class MainDashboardComponent implements OnInit {
+export class MainProfileComponent {
   isAdmin = true;
   isDoctor = false;
 
@@ -17,6 +16,7 @@ export class MainDashboardComponent implements OnInit {
 
 
   ngOnInit(): void {
+    console.log(this.authService.getCurrentUserProfile.roleLabel);
     this.isAdmin = this.authService.getCurrentUserProfile.role == "Admin";
     this.isDoctor = !this.isAdmin;
   }

@@ -1,1 +1,28 @@
-<p>admin-dashboard works!</p>
+<!-- <app-loader></app-loader> -->
+<div class="container-fluid">
+  <!-- start page title -->
+  <div class="row">
+    <div class="col-12">
+      <div class="page-title-box d-flex align-items-center justify-content-between">
+        <h4 class="mb-0 font-size-18">Dashboard</h4>
+        <div class="page-title-right">
+          <ol class="breadcrumb m-0">
+
+          </ol>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-xl-12">
+      <div class="row">
+        @for (stat of statsData; track $index) {
+          <div class="col-md-4">
+            <app-stat [title]="stat.title" [value]="stat.value" [icon]="stat.icon"></app-stat>
+          </div>}
+      </div>
+    </div>
+  </div>
+</div> <!-- container-fluid -->

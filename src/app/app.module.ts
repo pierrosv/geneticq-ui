@@ -54,6 +54,8 @@ import { MailEffects } from './store/Email/email.effects';
 import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
 import { DoctorDashboardComponent } from './doctor/doctor-dashboard/doctor-dashboard.component';
 import {AdminModule} from "./admin/admin.module";
+import { MainProfileComponent } from './main-profile/main-profile.component';
+import {DoctorModule} from "./doctor/doctor.module";
 
 if (environment.defaultauth === 'firebase') {
   initFirebaseBackend(environment.firebaseConfig);
@@ -72,6 +74,7 @@ export function createTranslateLoader(http: HttpClient): any {
     CyptolandingComponent,
     MainDashboardComponent,
     DoctorDashboardComponent,
+    MainProfileComponent,
   ],
   imports: [
     BrowserModule,
@@ -119,6 +122,7 @@ export function createTranslateLoader(http: HttpClient): any {
       MailEffects
     ]),
     AdminModule,
+    DoctorModule,
   ],
   bootstrap: [AppComponent],
   providers: [

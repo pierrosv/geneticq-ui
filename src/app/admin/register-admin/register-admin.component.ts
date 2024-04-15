@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {AdminModel} from "../../core/models/application-user";
 import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
-import {ActivatedRoute, Router} from "@angular/router";
+import { Router} from "@angular/router";
 import {TranslateService} from "@ngx-translate/core";
 import {AdminService} from "../../core/services/admin.service";
 import Swal from "sweetalert2";

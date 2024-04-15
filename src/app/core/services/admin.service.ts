@@ -6,6 +6,7 @@ import {QuestionPoolForListModel, QuestionPoolModel} from "../models/question-po
 import {QuestionnaireTemplateForListModel, QuestionnaireTemplateModel} from "../models/questionnaire-template";
 import {QuestionForListModel} from "../models/question";
 import {AdminModel, DoctorModel} from "../models/application-user";
+import {StatsModel} from "../models/stats";
 
 @Injectable({
   providedIn: 'root'
@@ -13,6 +14,10 @@ import {AdminModel, DoctorModel} from "../models/application-user";
 export class AdminService {
 
   constructor(private http: HttpClient) { }
+
+  getAllStats(): Observable<StatsModel[]> {
+    return this.http.get<StatsModel[]>(`${environment.apiUrl}/${environment.adminUrl}/get-stats`);
+  }
 
   getAllQuestionPools(): Observable<QuestionPoolForListModel[]> {
     return this.http.get<QuestionPoolForListModel[]>(`${environment.apiUrl}/${environment.questionPoolUrl}`);

@@ -26,9 +26,7 @@ export class RegisterDoctorComponent  implements OnInit {
 
   ngOnInit() {
     this.action = this.translateSrv.instant('GENERIC.REGISTER_DOCTOR');
-    /**
-     * Form Validation
-     */
+
     this.programTypeForm = this.formBuilder.group({
       id: [''],
       firstName: ['', [Validators.required]],
@@ -40,6 +38,7 @@ export class RegisterDoctorComponent  implements OnInit {
       workPhone: [''],
       email: [''],
     });
+
     this.adminSrv.getDoctorById(this.id).subscribe(x=> {
       this.doctor = x;
       this.patchForm();

@@ -6,6 +6,7 @@ import { ChatComponent } from './chat/chat.component';
 import { DefaultComponent } from './dashboards/default/default.component';
 import { FilemanagerComponent } from './filemanager/filemanager.component';
 import {MainDashboardComponent} from "../main-dashboard/main-dashboard.component";
+import {MainProfileComponent} from "../main-profile/main-profile.component";
 
 const routes: Routes = [
   // { path: '', redirectTo: 'dashboard' },
@@ -13,6 +14,7 @@ const routes: Routes = [
     path: "",
     component: MainDashboardComponent
   },
+  { path: 'profile', component: MainProfileComponent },
   { path: 'dashboard', component: DefaultComponent },
   { path: 'calendar', component: CalendarComponent },
   { path: 'chat', component: ChatComponent },
