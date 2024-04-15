@@ -51,6 +51,9 @@ import { tasklistEffects } from './store/Tasks/tasks.effect';
 import { OrdersEffects } from './store/Crypto/crypto.effects';
 import { CustomerEffects } from './store/customer/customer.effects';
 import { MailEffects } from './store/Email/email.effects';
+import { MainDashboardComponent } from './main-dashboard/main-dashboard.component';
+import { DoctorDashboardComponent } from './doctor/doctor-dashboard/doctor-dashboard.component';
+import {AdminModule} from "./admin/admin.module";
 
 if (environment.defaultauth === 'firebase') {
   initFirebaseBackend(environment.firebaseConfig);
@@ -67,6 +70,8 @@ export function createTranslateLoader(http: HttpClient): any {
   declarations: [
     AppComponent,
     CyptolandingComponent,
+    MainDashboardComponent,
+    DoctorDashboardComponent,
   ],
   imports: [
     BrowserModule,
@@ -113,6 +118,7 @@ export function createTranslateLoader(http: HttpClient): any {
       CustomerEffects,
       MailEffects
     ]),
+    AdminModule,
   ],
   bootstrap: [AppComponent],
   providers: [

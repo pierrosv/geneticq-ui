@@ -12,6 +12,8 @@ const routes: Routes = [
   { path: 'pages', loadChildren: () => import('./extrapages/extrapages.module').then(m => m.ExtrapagesModule), canActivate: [AuthGuard] },
   { path: 'params', component: LayoutComponent, loadChildren: () => import('./params/params.module').then(m => m.ParamsModule), canActivate: [AuthGuard] },
   { path: 'admin', component: LayoutComponent, loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule), canActivate: [AuthGuard] },
+  { path: 'doctor', component: LayoutComponent, loadChildren: () => import('./doctor/doctor.module').then(m => m.DoctorModule), canActivate: [AuthGuard] },
+
   { path: 'crypto-ico-landing', component: CyptolandingComponent },
   { path: '**', component: Page404Component },
 ];

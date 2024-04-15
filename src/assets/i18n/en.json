@@ -12,6 +12,7 @@
 		"DESCRIPTION": "Description",
 		"EDIT": "Edit",
 		"EMAIL": "E-mail",
+		"FATHER_NAME": "Father Name",
 		"FIRSTNAME": "First Name",
 		"LASTNAME": "Last Name",
 		"LOGIN": {
@@ -23,6 +24,7 @@
 			"WELCOME": "Welcome Back !"
 		},
 		"MOBILE": "Mobile",
+		"MOTHER_NAME": "Mother Name",
 		"NAME": "Name",
 		"QUESTION": "Question",
 		"QUESTION_ANSWER": "Question Answer",
@@ -194,6 +196,10 @@
 			},
 			"TEXT": "Dashboards"
 		},
+		"DOCTOR": {
+			"PATIENT": "Patient",
+			"PATIENTS": "Patients"
+		},
 		"ECOMMERCE": {
 			"LIST": {
 				"ADDPRODUCT": "Add Product",
@@ -356,6 +362,7 @@
 			},
 			"TEXT": "Tasks"
 		},
+		"TOP": "Dashboard",
 		"UIELEMENTS": {
 			"LIST": {
 				"ALERTS": "Alerts",

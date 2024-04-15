@@ -23,35 +23,40 @@ import { DoctorEditorComponent } from './doctor-editor/doctor-editor.component';
 import { AdminEditorComponent } from './admin-editor/admin-editor.component';
 import { RegisterAdminComponent } from './register-admin/register-admin.component';
 import { RegisterDoctorComponent } from './register-doctor/register-doctor.component';
+import { AdminDashboardComponent } from './admin-dashboard/admin-dashboard.component';
 
 
 @NgModule({
-  declarations: [
-    QuestionPoolsComponent,
-    QuestionnaireTemplatesComponent,
-    QuestionnaireTemplateEditorComponent,
-    QuestionPoolEditorComponent,
-    QuestionDetailComponent,
-    SubQuestionDetailComponent,
-    QuestionOptionDetailComponent,
-    QuestionAddComponent,
-    AdminListComponent,
-    DoctorListComponent,
-    AdminProfileComponent,
-    DoctorEditorComponent,
-    AdminEditorComponent,
-    RegisterAdminComponent,
-    RegisterDoctorComponent
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    ModalModule,
-    ReactiveFormsModule,
-    TranslateModule,
-    UIModule,
-    UiSwitchModule,
-    AccordionModule
-  ]
+    declarations: [
+        QuestionPoolsComponent,
+        QuestionnaireTemplatesComponent,
+        QuestionnaireTemplateEditorComponent,
+        QuestionPoolEditorComponent,
+        QuestionDetailComponent,
+        SubQuestionDetailComponent,
+        QuestionOptionDetailComponent,
+        QuestionAddComponent,
+        AdminListComponent,
+        DoctorListComponent,
+        AdminProfileComponent,
+        DoctorEditorComponent,
+        AdminEditorComponent,
+        RegisterAdminComponent,
+        RegisterDoctorComponent,
+        AdminDashboardComponent
+    ],
+    exports: [
+        AdminDashboardComponent
+    ],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        ModalModule,
+        ReactiveFormsModule,
+        TranslateModule,
+        UIModule,
+        UiSwitchModule,
+        AccordionModule
+    ]
 })
 export class AdminModule { }

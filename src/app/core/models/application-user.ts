@@ -36,7 +36,6 @@ export interface ApplicationUser {
   fullName: string;
   role: string;
   roleLabel: string;
-  roleName: string;
   firstName: string;
   expiresIn: Date;
   isLoggedIn: boolean;
