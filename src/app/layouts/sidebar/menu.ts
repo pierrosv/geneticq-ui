@@ -38,6 +38,25 @@ export const MENU: MenuItem[] = [
         },
       ]
     },
+  {
+    id: 3000,
+    label: 'MENUITEMS.USER_LIST.TEXT',
+    icon: 'bxs-user-detail',
+    subItems: [
+      {
+        id: 3001,
+        label: 'MENUITEMS.USER_LIST.DOCTORS',
+        link: '/admin/doctor-list',
+        parentId: 3000
+      },
+      {
+        id: 3002,
+        label: 'MENUITEMS.USER_LIST.ADMINS',
+        link: '/admin/admin-list',
+        parentId: 3000
+      }
+    ]
+  },
     {
         id: 2,
         label: 'MENUITEMS.DASHBOARDS.TEXT',

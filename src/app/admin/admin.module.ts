@@ -16,6 +16,12 @@ import {AccordionModule} from "ngx-bootstrap/accordion";
 import { SubQuestionDetailComponent } from './question-pool-editor/sub-question-detail/sub-question-detail.component';
 import { QuestionOptionDetailComponent } from './question-pool-editor/question-option-detail/question-option-detail.component';
 import { QuestionAddComponent } from './questionnaire-template-editor/question-add/question-add.component';
+import { AdminListComponent } from './admin-list/admin-list.component';
+import { DoctorListComponent } from './doctor-list/doctor-list.component';
+import { RegisterDoctorComponent } from './register-doctor/register-doctor.component';
+import { RegisterAdminComponent } from './register-admin/register-admin.component';
+import { AdminProfileComponent } from './admin-profile/admin-profile.component';
+import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
 
 
 @NgModule({
@@ -27,7 +33,13 @@ import { QuestionAddComponent } from './questionnaire-template-editor/question-a
     QuestionDetailComponent,
     SubQuestionDetailComponent,
     QuestionOptionDetailComponent,
-    QuestionAddComponent
+    QuestionAddComponent,
+    AdminListComponent,
+    DoctorListComponent,
+    RegisterDoctorComponent,
+    RegisterAdminComponent,
+    AdminProfileComponent,
+    DoctorProfileComponent
   ],
   imports: [
     CommonModule,

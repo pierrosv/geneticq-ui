@@ -4,6 +4,10 @@ import {QuestionPoolsComponent} from "./question-pools/question-pools.component"
 import {QuestionnaireTemplatesComponent} from "./questionnaire-templates/questionnaire-templates.component";
 import {QuestionnaireTemplateEditorComponent} from "./questionnaire-template-editor/questionnaire-template-editor.component";
 import {QuestionPoolEditorComponent} from "./question-pool-editor/question-pool-editor.component";
+import {AdminListComponent} from "./admin-list/admin-list.component";
+import {RegisterAdminComponent} from "./register-admin/register-admin.component";
+import {DoctorListComponent} from "./doctor-list/doctor-list.component";
+import {RegisterDoctorComponent} from "./register-doctor/register-doctor.component";
 
 const routes: Routes = [
   {
@@ -21,7 +25,23 @@ const routes: Routes = [
   {
     path: 'questionnaire-template-editor/:id',
     component: QuestionnaireTemplateEditorComponent
-  }
+  },
+  {
+    path: 'admin-list',
+    component: AdminListComponent
+  },
+  {
+    path: 'register-admin',
+    component: RegisterAdminComponent
+  },
+  {
+    path: 'doctor-list',
+    component: DoctorListComponent
+  },
+  {
+    path: 'register-doctor',
+    component: RegisterDoctorComponent
+  },
 ];
 
 @NgModule({

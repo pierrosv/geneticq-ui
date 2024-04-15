@@ -11,6 +11,8 @@
 		"DELETE_QUESTION": "Delete Question",
 		"DESCRIPTION": "Description",
 		"EDIT": "Edit",
+		"EMAIL": "E-mail",
+		"MOBILE": "Mobile",
 		"NAME": "Name",
 		"QUESTION": "Question",
 		"QUESTION_ANSWER": "Question Answer",
@@ -365,6 +367,11 @@
 				"VIDEO": "Video"
 			},
 			"TEXT": "UI Elements"
+		},
+		"USER_LIST": {
+			"ADMINS": "Administrators",
+			"DOCTORS": "Doctors",
+			"TEXT": "Users"
 		},
 		"UTILITY": {
 			"LIST": {
