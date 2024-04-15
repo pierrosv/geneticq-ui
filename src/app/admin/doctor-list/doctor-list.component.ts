@@ -79,6 +79,9 @@ export class DoctorListComponent  implements OnInit {
     this.router.navigate(['admin/doctor-editor', id])
   }
 
+  registerDoctor() {
+    this.router.navigate(['admin/register-doctor'])
+  }
   // pagination
   pagechanged(event: any) {
     // const startItem = (event.page - 1) * event.itemsPerPage;

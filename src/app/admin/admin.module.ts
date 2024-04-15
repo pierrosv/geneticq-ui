@@ -21,6 +21,8 @@ import { DoctorListComponent } from './doctor-list/doctor-list.component';
 import { AdminProfileComponent } from './admin-profile/admin-profile.component';
 import { DoctorEditorComponent } from './doctor-editor/doctor-editor.component';
 import { AdminEditorComponent } from './admin-editor/admin-editor.component';
+import { RegisterAdminComponent } from './register-admin/register-admin.component';
+import { RegisterDoctorComponent } from './register-doctor/register-doctor.component';
 
 
 @NgModule({
@@ -37,7 +39,9 @@ import { AdminEditorComponent } from './admin-editor/admin-editor.component';
     DoctorListComponent,
     AdminProfileComponent,
     DoctorEditorComponent,
-    AdminEditorComponent
+    AdminEditorComponent,
+    RegisterAdminComponent,
+    RegisterDoctorComponent
   ],
   imports: [
     CommonModule,

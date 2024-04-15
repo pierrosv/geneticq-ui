@@ -8,6 +8,7 @@ export const environment = {
   questionPoolCategoryUrl: 'question-pool-category',
   questionPoolUrl: 'question-pool',
   adminUrl: 'admin',
+  identityUrl: 'identity',
   questionUrl: 'question',
   questionnaireTemplateUrl: 'questionnaire-template',
   staticDataUrl: 'static-data',

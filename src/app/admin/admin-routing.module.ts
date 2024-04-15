@@ -8,6 +8,8 @@ import {AdminListComponent} from "./admin-list/admin-list.component";
 import {DoctorListComponent} from "./doctor-list/doctor-list.component";
 import {DoctorEditorComponent} from "./doctor-editor/doctor-editor.component";
 import {AdminEditorComponent} from "./admin-editor/admin-editor.component";
+import {RegisterDoctorComponent} from "./register-doctor/register-doctor.component";
+import {RegisterAdminComponent} from "./register-admin/register-admin.component";
 
 const routes: Routes = [
   {
@@ -31,12 +33,20 @@ const routes: Routes = [
     component: AdminListComponent
   },
   {
+    path: 'register-admin',
+    component: RegisterAdminComponent
+  },
+  {
     path: 'admin-editor/:id',
     component: AdminEditorComponent
   },
   {
     path: 'doctor-list',
     component: DoctorListComponent
+  },
+  {
+    path: 'register-doctor',
+    component: RegisterDoctorComponent
   },
   {
     path: 'doctor-editor/:id',

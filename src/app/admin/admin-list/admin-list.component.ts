@@ -79,6 +79,10 @@ export class AdminListComponent  implements OnInit {
     this.router.navigate(['admin/admin-editor', id])
   }
 
+  registerAdmin() {
+    this.router.navigate(['admin/register-admin'])
+  }
+
   // pagination
   pagechanged(event: any) {
     // const startItem = (event.page - 1) * event.itemsPerPage;

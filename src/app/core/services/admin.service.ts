@@ -74,6 +74,11 @@ export class AdminService {
     return this.http.put<AdminModel>(fullUrl, admin);
   }
 
+  registerAdmin(doctor: AdminModel):Observable<AdminModel> {
+    const fullUrl = `${environment.apiUrl}/${environment.identityUrl}/register-admin`;
+    return this.http.post<AdminModel>(fullUrl, doctor);
+  }
+
   getAllDoctors(): Observable<DoctorModel[]> {
     return this.http.get<DoctorModel[]>(`${environment.apiUrl}/${environment.adminUrl}/get-all-doctors`);
   }
@@ -88,5 +93,10 @@ export class AdminService {
       return this.http.post<DoctorModel>(fullUrl, doctor);
     }
     return this.http.put<DoctorModel>(fullUrl, doctor);
+  }
+
+  registerDoctor(doctor: DoctorModel):Observable<DoctorModel> {
+    const fullUrl = `${environment.apiUrl}/${environment.identityUrl}/register-doctor`;
+    return this.http.post<DoctorModel>(fullUrl, doctor);
   }
 }
