@@ -43,3 +43,19 @@ export class DoctorQuestionForListModel {
   id: number;
   title: string;
 }
+
+
+export class QuestionnaireExecutionListModel {
+  id: number;
+  forQuestionnaireId: number;
+  forPatientId: number;
+  executionDate: Date;
+  forPatientName: string;
+  forQuestionnaireName: string;
+}
+
+export class ExecuteQuestionnaireModel {
+  forQuestionnaireId: number;
+  forPatientId: number;
+  byDoctorId: number;
+}

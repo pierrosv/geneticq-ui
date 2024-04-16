@@ -13,8 +13,13 @@
 		"DESCRIPTION": "Description",
 		"EDIT": "Edit",
 		"EMAIL": "E-mail",
+		"EXECUTE_QUESTIONNAIRE": "Execute Questionnaire",
+		"EXECUTION_DATE": "Execution Date",
 		"FATHER_NAME": "Father Name",
 		"FIRSTNAME": "First Name",
+		"GENERIC": {
+			"EXECUTE_QUESTIONNAIRE": "Execute Questionnaire"
+		},
 		"LASTNAME": "Last Name",
 		"LOGIN": {
 			"FORGOT_PASSWORD": "Forgot your password?",
@@ -29,6 +34,7 @@
 		"MOTHER_NAME": "Mother Name",
 		"NAME": "Name",
 		"NOTES": "Notes",
+		"PATIENT": "Patient",
 		"PROFILE": {
 			"ADMIN": "Admin Profile",
 			"DOCTOR": "Your Profile",
@@ -42,6 +48,7 @@
 		"QUESTION_NO": "Question No",
 		"QUESTION_SUBQUESTIONS": "Sub-Questions",
 		"QUESTION_TITLE": "Question Title",
+		"QUESTIONNAIRE": "Questionnaire",
 		"REGISTER_ADMIN": "Register Admin",
 		"REGISTER_DOCTOR": "Register Doctor",
 		"SAVE": "Save",
@@ -210,6 +217,7 @@
 			"PATIENT": "Patient",
 			"PATIENTS": "Patients",
 			"QUESTIONNAIRE": "Questionnaire",
+			"QUESTIONNAIRE_RESULTS": "Questionnaire Results",
 			"QUESTIONNAIRES": "Questionnaires"
 		},
 		"ECOMMERCE": {

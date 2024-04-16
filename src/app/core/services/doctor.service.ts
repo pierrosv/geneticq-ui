@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {PatientForListModel, PatientModel} from "../models/patient";
-import {QuestionnaireListModel, QuestionnaireModel} from "../models/questionnaire";
+import {ExecuteQuestionnaireModel, QuestionnaireExecutionListModel, QuestionnaireListModel, QuestionnaireModel} from "../models/questionnaire";
 import {StatsModel} from "../models/stats";
 import {DoctorModel} from "../models/application-user";
 
@@ -65,5 +65,18 @@ export class DoctorService {
   saveDoctor(doctor: DoctorModel):Observable<DoctorModel> {
     const fullUrl = `${environment.apiUrl}/${environment.doctorUrl}/save-doctor`;
     return this.http.put<DoctorModel>(fullUrl, doctor);
+  }
+
+  executeQuestionnaire(model: ExecuteQuestionnaireModel):Observable<QuestionnaireExecutionListModel> {
+    const fullUrl = `${environment.apiUrl}/${environment.doctorUrl}/create-questionnaire-execution`;
+    return this.http.post<QuestionnaireExecutionListModel>(fullUrl, model);
+  }
+
+  getAllQuestionnaireExecutions(doctorId: number): Observable<QuestionnaireExecutionListModel[]> {
+    return this.http.get<QuestionnaireExecutionListModel[]>(`${environment.apiUrl}/${environment.doctorUrl}/get-all-questionnaire-executions/${doctorId}`);
+  }
+
+  deleteQuestionnaireExecutionById(id: number): Observable<boolean> {
+    return this.http.delete<boolean>(`${environment.apiUrl}/${environment.doctorUrl}/delete-execution/${id}`);
   }
 }

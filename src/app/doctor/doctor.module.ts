@@ -13,6 +13,9 @@ import { DoctorProfileComponent } from './doctor-profile/doctor-profile.componen
 import { DoctorQuestionnairesComponent } from './doctor-questionnaires/doctor-questionnaires.component';
 import { DoctorQuestionnaireEditorComponent } from './doctor-questionnaire-editor/doctor-questionnaire-editor.component';
 import { DoctorQuestionEditorComponent } from './doctor-question-editor/doctor-question-editor.component';
+import { ExecuteQuestionnaireComponent } from './execute-questionnaire/execute-questionnaire.component';
+import { QuestionnaireResultsComponent } from './questionnaire-results/questionnaire-results.component';
+import { QuestionnaireExecutionComponent } from './questionnaire-execution/questionnaire-execution.component';
 
 
 @NgModule({
@@ -22,7 +25,10 @@ import { DoctorQuestionEditorComponent } from './doctor-question-editor/doctor-q
     DoctorProfileComponent,
     DoctorQuestionnairesComponent,
     DoctorQuestionnaireEditorComponent,
-    DoctorQuestionEditorComponent],
+    DoctorQuestionEditorComponent,
+    ExecuteQuestionnaireComponent,
+    QuestionnaireResultsComponent,
+    QuestionnaireExecutionComponent],
   exports: [
     DoctorProfileComponent
   ],

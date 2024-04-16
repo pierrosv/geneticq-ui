@@ -1,0 +1,52 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="{{'GENERIC.EXECUTE_QUESTIONNAIRE' | translate}}"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+<!--          <h4 class="card-title mb-4">{{action}}</h4>-->
+          <form (ngSubmit)="save()" [formGroup]="questionnaireForm">
+            <div data-repeater-list="outer-group" class="outer">
+              <div data-repeater-item class="outer">
+                <div class="row mb-4">
+                  <label for="forQuestionnaireId" class="col-form-label col-lg-2">{{'GENERIC.QUESTIONNAIRE' | translate}}</label>
+                  <div class="col-lg-10">
+                    <select class="form-select" id="forQuestionnaireId" name="questionnaireForm" formControlName="forQuestionnaireId" >
+                      <option *ngFor="let questionnaire of questionnaires" [value]="questionnaire.id">
+                        {{questionnaire.name}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="forPatientId" class="col-form-label col-lg-2">{{'GENERIC.PATIENT' | translate}}</label>
+                  <div class="col-lg-10">
+                    <select class="form-select" id="forPatientId" name="forPatientId" formControlName="forPatientId" >
+                      <option *ngFor="let patient of patients" [value]="patient.id">
+                        {{patient.lastname}} {{patient.firstname}}
+                      </option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="row justify-content-end">
+              <div class="col-lg-10">
+                <button type="submit" class="btn btn-primary">{{'GENERIC.SAVE' | translate}}</button>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

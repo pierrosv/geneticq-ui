@@ -18,6 +18,12 @@ export const DOCTOR_MENU: MenuItem[] = [
     label: 'MENUITEMS.DOCTOR.QUESTIONNAIRES',
     icon: 'bx-file',
     link: '/doctor/questionnaires',
+  },
+  {
+    id: 7000,
+    label: 'MENUITEMS.DOCTOR.QUESTIONNAIRE_RESULTS',
+    icon: 'bx-file',
+    link: '/doctor/questionnaire-results',
   }
 ];
 
