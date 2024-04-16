@@ -5,6 +5,7 @@ import {environment} from "../../../environments/environment";
 import {PatientForListModel, PatientModel} from "../models/patient";
 import {QuestionnaireListModel, QuestionnaireModel} from "../models/questionnaire";
 import {StatsModel} from "../models/stats";
+import {DoctorModel} from "../models/application-user";
 
 @Injectable({
   providedIn: 'root'
@@ -55,5 +56,14 @@ export class DoctorService {
       return this.http.post<QuestionnaireModel>(fullUrl, category);
     }
     return this.http.put<QuestionnaireModel>(fullUrl, category);
+  }
+
+  getDoctorById(id: number): Observable<DoctorModel> {
+    return this.http.get<DoctorModel>(`${environment.apiUrl}/${environment.doctorUrl}/get-doctor/${id}`);
+  }
+
+  saveDoctor(doctor: DoctorModel):Observable<DoctorModel> {
+    const fullUrl = `${environment.apiUrl}/${environment.doctorUrl}/save-doctor`;
+    return this.http.put<DoctorModel>(fullUrl, doctor);
   }
 }
