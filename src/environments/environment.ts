@@ -9,6 +9,7 @@ export const environment = {
   questionPoolUrl: 'question-pool',
   adminUrl: 'admin',
   patientUrl: 'patient',
+  questionnaireUrl: 'questionnaire',
   identityUrl: 'identity',
   questionUrl: 'question',
   questionnaireTemplateUrl: 'questionnaire-template',

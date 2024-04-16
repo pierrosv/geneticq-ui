@@ -12,6 +12,12 @@ export const DOCTOR_MENU: MenuItem[] = [
     label: 'MENUITEMS.DOCTOR.PATIENTS',
     icon: 'bx-user-circle',
     link: '/doctor/patients',
+  },
+  {
+    id: 6000,
+    label: 'MENUITEMS.DOCTOR.QUESTIONNAIRES',
+    icon: 'bx-file',
+    link: '/doctor/questionnaires',
   }
 ];
 

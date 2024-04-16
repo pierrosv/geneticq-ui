@@ -45,6 +45,7 @@
 		"REGISTER_ADMIN": "Register Admin",
 		"REGISTER_DOCTOR": "Register Doctor",
 		"SAVE": "Save",
+		"SELECT_TEMPLATE": "If you select a template, its structure will be copied on this questionnaire on FIRST save !",
 		"SOCIAL_SECURITY_NO": "Social Security No.",
 		"SPECIALTY": "Speciality",
 		"SUBSCRIBEDON": "Subscribed On",
@@ -207,7 +208,9 @@
 		},
 		"DOCTOR": {
 			"PATIENT": "Patient",
-			"PATIENTS": "Patients"
+			"PATIENTS": "Patients",
+			"QUESTIONNAIRE": "Questionnaire",
+			"QUESTIONNAIRES": "Questionnaires"
 		},
 		"ECOMMERCE": {
 			"LIST": {

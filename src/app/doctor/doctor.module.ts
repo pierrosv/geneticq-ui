@@ -10,13 +10,19 @@ import { DoctorRoutingModule } from './doctor-routing.module';
 import {PatientListComponent} from "./patients/patient-list/patient-list.component";
 import {PatientEditorComponent} from "./patients/patient-editor/patient-editor.component";
 import { DoctorProfileComponent } from './doctor-profile/doctor-profile.component';
+import { DoctorQuestionnairesComponent } from './doctor-questionnaires/doctor-questionnaires.component';
+import { DoctorQuestionnaireEditorComponent } from './doctor-questionnaire-editor/doctor-questionnaire-editor.component';
+import { DoctorQuestionEditorComponent } from './doctor-question-editor/doctor-question-editor.component';
 
 
 @NgModule({
   declarations: [
     PatientListComponent,
     PatientEditorComponent,
-    DoctorProfileComponent],
+    DoctorProfileComponent,
+    DoctorQuestionnairesComponent,
+    DoctorQuestionnaireEditorComponent,
+    DoctorQuestionEditorComponent],
   exports: [
     DoctorProfileComponent
   ],

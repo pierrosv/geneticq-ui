@@ -1,34 +1,37 @@
 import {Component, OnInit} from '@angular/core';
+import {StaticDataModel} from "../../core/models/static-data";
 import {UntypedFormBuilder, UntypedFormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router} from "@angular/router";
 import {TranslateService} from "@ngx-translate/core";
-import Swal from "sweetalert2";
-import {QuestionPoolForListModel, QuestionPoolModel} from "../../core/models/question-pool";
-import {AdminService} from "../../core/services/admin.service";
-import {ParamsService} from "../../core/services/params.service";
-import {QuestionPoolCategoryModel} from "../../core/models/question-pool-category";
 import {StaticDataService} from "../../core/services/static-data.service";
-import {StaticDataModel} from "../../core/models/static-data";
+import Swal from "sweetalert2";
 import {QuestionModel} from "../../core/models/question";
+import {QuestionnaireModel} from "../../core/models/questionnaire";
+import {DoctorService} from "../../core/services/doctor.service";
+import {AuthenticationService} from "../../core/services/auth.service";
+import {AdminService} from "../../core/services/admin.service";
+import {QuestionnaireTemplateForListModel} from "../../core/models/questionnaire-template";
 
 @Component({
-  selector: 'app-question-pool-editor',
-  templateUrl: './question-pool-editor.component.html',
-  styleUrls: ['./question-pool-editor.component.css']
+  selector: 'app-doctor-questionnaire-editor',
+  templateUrl: './doctor-questionnaire-editor.component.html',
+  styleUrls: ['./doctor-questionnaire-editor.component.css']
 })
-export class QuestionPoolEditorComponent  implements OnInit {
+export class DoctorQuestionnaireEditorComponent  implements OnInit {
   id: number;
+  doctorId: number;
   action: string;
-  questionPoolCategories: QuestionPoolCategoryModel[];
   questionAnswerTypes: StaticDataModel[];
-  questionPool: QuestionPoolModel;
-  programTypeForm!: UntypedFormGroup;
+  questionnaireTemplates: QuestionnaireTemplateForListModel[];
+  questionnaire: QuestionnaireModel;
+  questionnaireForm!: UntypedFormGroup;
 
   constructor(private formBuilder: UntypedFormBuilder,
               private route: ActivatedRoute,
               private translateSrv: TranslateService,
+              private doctorSrv: DoctorService,
               private adminSrv: AdminService,
-              private paramsSrv: ParamsService,
+              private authSrv: AuthenticationService,
               private staticDataSrv: StaticDataService,
               private router: Router) {
   }
@@ -40,44 +43,48 @@ export class QuestionPoolEditorComponent  implements OnInit {
       this.action = this.translateSrv.instant('GENERIC.ADD')
     }
 
-    this.staticDataSrv.getQuestionAnswerTypes().subscribe(x=> {
-      this.questionAnswerTypes = x;
+    this.adminSrv.getAllQuestionnaireTemplates().subscribe(x=> {
+      this.questionnaireTemplates = x;
     });
 
-    this.paramsSrv.getAllQuestionPoolCategories().subscribe(x=> {
-      this.questionPoolCategories = x;
-    })
+    this.staticDataSrv.getQuestionAnswerTypes().subscribe(x=> {
+      this.questionAnswerTypes = x;
+      console.log(x);
+    });
 
-    this.programTypeForm = this.formBuilder.group({
+    this.questionnaireForm = this.formBuilder.group({
       id: [''],
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      onCategoryId: [0, [Validators.required]],
     });
-    this.adminSrv.getQuestionPoolById(this.id).subscribe(x=> {
-      this.questionPool = x;
+    this.doctorId = this.authSrv.getCurrentUserProfile.id;
+
+    this.doctorSrv.getQuestionnaireById(this.doctorId, this.id).subscribe(x=> {
+      this.questionnaire = x;
+      console.log(x);
       this.patchForm();
     });
   }
 
   patchForm() {
-    this.programTypeForm.patchValue({name: this.questionPool.name});
-    this.programTypeForm.patchValue({description: this.questionPool.description});
-    this.programTypeForm.patchValue({onCategoryId: this.questionPool.onCategoryId});
+    this.questionnaireForm.patchValue({name: this.questionnaire.name});
+    this.questionnaireForm.patchValue({description: this.questionnaire.description});
+    this.questionnaireForm.patchValue({fromTemplateId: this.questionnaire.fromTemplateId});
   }
 
   save() {
-    if (this.programTypeForm.valid) {
-      this.questionPool.id = -1;
-      this.questionPool.name = this.programTypeForm.get('name')?.value;
-      this.questionPool.description = this.programTypeForm.get('description')?.value;
-      this.questionPool.onCategoryId = this.programTypeForm.get('onCategoryId')?.value;
+    if (this.questionnaireForm.valid) {
+      this.questionnaire.id = -1;
+      this.questionnaire.byDoctorId = this.doctorId;
+      this.questionnaire.name = this.questionnaireForm.get('name')?.value;
+      this.questionnaire.description = this.questionnaireForm.get('description')?.value;
+      this.questionnaire.fromTemplateId = this.questionnaireForm.get('fromTemplateId')?.value;
 
       if (this.id > 0 ) {
-        this.questionPool.id = this.id;
+        this.questionnaire.id = this.id;
       }
 
-      this.adminSrv.saveQuestionPool(this.questionPool).subscribe( x => {
+      this.doctorSrv.saveQuestionnaire(this.questionnaire).subscribe(x => {
         Swal.fire({
           icon: 'success',
           title: this.translateSrv.instant('GENERIC.SUCCESSFULLY_SAVED'),
@@ -105,11 +112,8 @@ export class QuestionPoolEditorComponent  implements OnInit {
   createQuestion() {
     let newQuestion = new QuestionModel();
     let appOrder = 0;
-    if (!this.questionPool.questions) {
-      this.questionPool.questions = [];
-    }
-    if (this.questionPool.questions.length > 0) {
-      for (let num of this.questionPool.questions) {
+    if (this.questionnaire.questions.length > 0) {
+      for (let num of this.questionnaire.questions) {
         if (num.appearanceOrder > appOrder) {
           appOrder = num.appearanceOrder; // Update the maxNumber if current number is greater
         }
@@ -117,13 +121,13 @@ export class QuestionPoolEditorComponent  implements OnInit {
     }
 
     newQuestion.appearanceOrder = appOrder + 1;
-    this.questionPool.questions.push(newQuestion);
+    this.questionnaire.questions.push(newQuestion);
   }
 
   deleteQuestion(question) {
-    const index = this.questionPool.questions.indexOf(question, 0);
+    const index = this.questionnaire.questions.indexOf(question, 0);
     if (index > -1) {
-      this.questionPool.questions.splice(index, 1);
+      this.questionnaire.questions.splice(index, 1);
     }
   }
 }

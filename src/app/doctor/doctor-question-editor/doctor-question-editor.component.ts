@@ -1,14 +1,14 @@
 import {Component, Input, OnChanges, SimpleChanges} from '@angular/core';
-import {QuestionAnswerOptionModel, QuestionModel, SubQuestionModel} from "../../../core/models/question";
-import {StaticDataModel} from "../../../core/models/static-data";
+import {DoctorQuestionAnswerOptionModel, DoctorQuestionModel, DoctorSubQuestionModel} from "../../core/models/questionnaire";
+import {StaticDataModel} from "../../core/models/static-data";
 
 @Component({
-  selector: 'app-question-detail',
-  templateUrl: './question-detail.component.html',
-  styleUrls: ['./question-detail.component.css']
+  selector: 'app-doctor-question-editor',
+  templateUrl: './doctor-question-editor.component.html',
+  styleUrls: ['./doctor-question-editor.component.css']
 })
-export class QuestionDetailComponent implements OnChanges {
-  @Input() question: QuestionModel;
+export class DoctorQuestionEditorComponent implements OnChanges {
+  @Input() question: DoctorQuestionModel;
   @Input() questionAnswerTypes: StaticDataModel[];
   displayOptions: boolean = false;
 
@@ -22,7 +22,7 @@ export class QuestionDetailComponent implements OnChanges {
   }
 
   createQuestionAnswer() {
-    let newAnswer = new QuestionAnswerOptionModel();
+    let newAnswer = new DoctorQuestionAnswerOptionModel();
     let appOrder = 0;
     if (!this.question.answerOptions) {
       this.question.answerOptions = [];
@@ -47,7 +47,7 @@ export class QuestionDetailComponent implements OnChanges {
   }
 
   createSubQuestion() {
-    let newSubQuestion = new SubQuestionModel();
+    let newSubQuestion = new DoctorSubQuestionModel();
     let appOrder = 0;
     if (!this.question.subQuestions) {
       this.question.subQuestions = [];

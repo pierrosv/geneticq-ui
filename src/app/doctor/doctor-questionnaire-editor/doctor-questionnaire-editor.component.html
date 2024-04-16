@@ -1,0 +1,77 @@
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="{{'MENUITEMS.DOCTOR.QUESTIONNAIRE' | translate}}"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">{{action}}</h4>
+          <form (ngSubmit)="save()" [formGroup]="questionnaireForm">
+            <div data-repeater-list="outer-group" class="outer">
+              <div data-repeater-item class="outer">
+                <div class="row mb-4">
+                  <label for="name" class="col-form-label col-lg-2">{{'GENERIC.NAME' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="name" name="name" type="text" formControlName="name" class="form-control" placeholder="Ονομασία...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="description" class="col-form-label col-lg-2">{{'GENERIC.DESCRIPTION' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="description" name="description" type="text" formControlName="description" class="form-control" placeholder="Ονομασία...">
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="fromTemplateId" class="col-form-label col-lg-2">{{'MENUITEMS.QUESTIONNAIRE_ADMIN.QUESTIONNAIRE_TEMPLATE' | translate}}</label>
+                  <div class="col-lg-10">
+                    <select class="form-select" id="fromTemplateId" name="fromTemplateId" formControlName="fromTemplateId" >
+                      <option *ngFor="let template of questionnaireTemplates" [value]="template.id">
+                        {{template.name}}
+                      </option>
+                    </select>
+                    <p>{{'GENERIC.SELECT_TEMPLATE' | translate}}
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4">
+                <div class="col-lg-10">
+                  <button type="button" class="btn btn-dark" (click)="createQuestion()">{{'MENUITEMS.QUESTIONNAIRE_ADMIN.ADD_QUESTION' | translate}}</button>
+                </div>
+              </div>
+              <div class="row mb-4" *ngIf="this.questionnaire && this.questionnaire.questions.length > 0">
+                <accordion [closeOthers]="true" class="accordion" [isAnimated]="true">
+                  <accordion-group heading="{{'GENERIC.QUESTION_NO' | translate}} # {{question.appearanceOrder}}" class="accordion-item" *ngFor="let question of this.questionnaire.questions">
+                    <app-doctor-question-editor
+                      [question]="question"
+                      [questionAnswerTypes]="questionAnswerTypes">
+
+                    </app-doctor-question-editor>
+                    <div class="row mb-4">
+                      <div class="col-lg-10">
+                        <button type="button" class="btn btn-danger" (click)="deleteQuestion(question)">{{'GENERIC.DELETE_QUESTION' | translate}}</button>
+                      </div>
+                    </div>
+                  </accordion-group>
+                </accordion>
+              </div>
+            </div>
+
+            <div class="row justify-content-end">
+              <div class="col-lg-10">
+                <button type="submit" class="btn btn-primary">{{'GENERIC.SAVE' | translate}}</button>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

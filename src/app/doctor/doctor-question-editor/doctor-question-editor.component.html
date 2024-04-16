@@ -1,0 +1,98 @@
+<div class="row" *ngIf="question">
+  <h4>{{'GENERIC.QUESTION' | translate}}</h4>
+  <br/>
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="mb-3">
+        <label for="dayOfTheWeek">{{'GENERIC.QUESTION_ANSWER_TYPE' | translate}}</label>
+        <select class="form-select" id="dayOfTheWeek" name="dayOfTheWeek" (ngModelChange)="onChangeSelection($event)" [ngModel]="this.question.answerType">
+          <option *ngFor="let answerType of questionAnswerTypes" [value]="answerType.id">
+            {{answerType.name}}
+          </option>
+        </select>
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="mb-3">
+        <label for="title">{{'GENERIC.QUESTION_TITLE' | translate}}</label>
+        <input id="title" name="title" type="text" class="form-control" placeholder="{{'GENERIC.QUESTION_TITLE' | translate}}..." [(ngModel)]="this.question.title">
+      </div>
+    </div>
+
+    <div class="col-lg-3">
+      <div class="mb-3">
+        <label for="description">{{'GENERIC.DESCRIPTION' | translate}}</label>
+        <input id="description" name="description" type="text" class="form-control" placeholder="{{'GENERIC.DESCRIPTION' | translate}}..." [(ngModel)]="this.question.description">
+      </div>
+    </div>
+
+    <div *ngIf="displayOptions">
+      <accordion [closeOthers]="true" class="accordion" [isAnimated]="true">
+        <accordion-group heading="{{'GENERIC.QUESTION_ANSWER_OPTIONS' | translate}} " class="accordion-item" >
+          @for(answer of question.answerOptions; track answer; let i=$index)
+          {
+            <div>
+              <div class="row">
+                <div class="col-md-10 col-6">
+                  <input id="title2" name="title2" type="text" class="form-control" placeholder="{{'GENERIC.QUESTION_ANSWER' | translate}}..." [(ngModel)]="answer.title">
+                </div>
+                <div class="col-md-2 col-4">
+                  <div class="d-grid">
+                    <input type="button" class="btn btn-primary inner" value="Delete" (click)="deleteAnswer(i)">
+                  </div>
+                </div>
+              </div>
+              <br/>
+            </div>
+          }
+
+          <div class="col-lg-10">
+            <button type="button" class="btn btn-dark" (click)="createQuestionAnswer()">{{'GENERIC.ADD_QUESTION_ANSWER' | translate}}</button>
+          </div>
+          <div class="row mb-4">
+            <div class="col-lg-10">
+              <!--              <button type="button" class="btn btn-danger" (click)="deleteQuestion(question)">{{'GENERIC.DELETE_QUESTION' | translate}}</button>-->
+            </div>
+          </div>
+        </accordion-group>
+      </accordion>
+      <br/>
+    </div>
+
+    <div >
+      <accordion [closeOthers]="true" class="accordion" [isAnimated]="true">
+        <accordion-group heading="{{'GENERIC.QUESTION_SUBQUESTIONS' | translate}} " class="accordion-item" >
+          @for(subQuestion of question.subQuestions; track subQuestion; let i=$index)
+          {
+            <div>
+              <div class="row">
+                <div class="col-md-10 col-6">
+                  <!--                  <label for="title">{{'GENERIC.QUESTION_TITLE' | translate}}</label>-->
+                  <input id="title3" name="title3" type="text" class="form-control" placeholder="{{'GENERIC.TITLE' | translate}}..." [(ngModel)]="subQuestion.title" >
+                </div>
+                <!--                <div class="col-md-10 col-6">-->
+                <!--                  <label for="title">{{'GENERIC.DESCRIPTION' | translate}}</label>-->
+                <!--                  <input id="description3" name="title3" type="text" class="form-control" placeholder="{{'GENERIC.DESCRIPTION' | translate}}..." [(ngModel)]="subQuestion.title">-->
+                <!--                </div>-->
+                <div class="col-md-2 col-4">
+                  <div class="d-grid">
+                    <input type="button" class="btn btn-primary inner" value="Delete" (click)="deleteSubQuestion(i)">
+                  </div>
+                </div>
+              </div>
+              <br/>
+            </div>
+          }
+
+          <div class="col-lg-10">
+            <button type="button" class="btn btn-dark" (click)="createSubQuestion()">{{'GENERIC.ADD_SUBQUESTION' | translate}}</button>
+          </div>
+        </accordion-group>
+      </accordion>
+      <br/>
+    </div>
+
+  </div>
+</div>
+
