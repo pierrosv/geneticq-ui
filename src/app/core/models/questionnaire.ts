@@ -11,6 +11,7 @@ export class QuestionnaireModel {
   fromTemplateId: number;
   description: string;
   byDoctorId: number;
+  lockTemplate: boolean;
   questions: DoctorQuestionModel[];
 }
 

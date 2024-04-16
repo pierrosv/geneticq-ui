@@ -56,6 +56,7 @@ import { DoctorDashboardComponent } from './doctor/doctor-dashboard/doctor-dashb
 import {AdminModule} from "./admin/admin.module";
 import { MainProfileComponent } from './main-profile/main-profile.component';
 import {DoctorModule} from "./doctor/doctor.module";
+import {WidgetModule} from "./shared/widget/widget.module";
 
 if (environment.defaultauth === 'firebase') {
   initFirebaseBackend(environment.firebaseConfig);
@@ -76,54 +77,55 @@ export function createTranslateLoader(http: HttpClient): any {
     DoctorDashboardComponent,
     MainProfileComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    HttpClientModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFireAuthModule,
-    TranslateModule.forRoot({
-      loader: {
-        provide: TranslateLoader,
-        useFactory: createTranslateLoader,
-        deps: [HttpClient]
-      }
-    }),
-    LayoutsModule,
-    AppRoutingModule,
-    ExtrapagesModule,
-    AccordionModule.forRoot(),
-    TabsModule.forRoot(),
-    TooltipModule.forRoot(),
-    SharedModule,
-    ScrollToModule.forRoot(),
-    SlickCarouselModule,
-    ToastrModule.forRoot(),
-    StoreModule.forRoot(rootReducer),
-    StoreDevtoolsModule.instrument({
-      maxAge: 25, // Retains last 25 states
-      logOnly: environment.production, // Restrict extension to log-only mode
-    }),
-    EffectsModule.forRoot([
-      FilemanagerEffects,
-      OrderEffects,
-      AuthenticationEffects,
-      CartEffects,
-      ProjectEffects,
-      usersEffects,
-      userslistEffects,
-      JoblistEffects,
-      CandidateEffects,
-      InvoiceDataEffects,
-      ChatEffects,
-      tasklistEffects,
-      OrdersEffects,
-      CustomerEffects,
-      MailEffects
-    ]),
-    AdminModule,
-    DoctorModule,
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        HttpClientModule,
+        AngularFireModule.initializeApp(environment.firebaseConfig),
+        AngularFireAuthModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: createTranslateLoader,
+                deps: [HttpClient]
+            }
+        }),
+        LayoutsModule,
+        AppRoutingModule,
+        ExtrapagesModule,
+        AccordionModule.forRoot(),
+        TabsModule.forRoot(),
+        TooltipModule.forRoot(),
+        SharedModule,
+        ScrollToModule.forRoot(),
+        SlickCarouselModule,
+        ToastrModule.forRoot(),
+        StoreModule.forRoot(rootReducer),
+        StoreDevtoolsModule.instrument({
+            maxAge: 25, // Retains last 25 states
+            logOnly: environment.production, // Restrict extension to log-only mode
+        }),
+        EffectsModule.forRoot([
+            FilemanagerEffects,
+            OrderEffects,
+            AuthenticationEffects,
+            CartEffects,
+            ProjectEffects,
+            usersEffects,
+            userslistEffects,
+            JoblistEffects,
+            CandidateEffects,
+            InvoiceDataEffects,
+            ChatEffects,
+            tasklistEffects,
+            OrdersEffects,
+            CustomerEffects,
+            MailEffects
+        ]),
+        AdminModule,
+        DoctorModule,
+        WidgetModule,
+    ],
   bootstrap: [AppComponent],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

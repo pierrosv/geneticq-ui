@@ -4,6 +4,7 @@ import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {PatientForListModel, PatientModel} from "../models/patient";
 import {QuestionnaireListModel, QuestionnaireModel} from "../models/questionnaire";
+import {StatsModel} from "../models/stats";
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +12,10 @@ import {QuestionnaireListModel, QuestionnaireModel} from "../models/questionnair
 export class DoctorService {
 
   constructor(private http: HttpClient) { }
+
+  getAllStats(doctorId: number): Observable<StatsModel[]> {
+    return this.http.get<StatsModel[]>(`${environment.apiUrl}/${environment.doctorUrl}/get-stats/${doctorId}`);
+  }
 
   getAllPatients(doctorId: number): Observable<PatientForListModel[]> {
     return this.http.get<PatientForListModel[]>(`${environment.apiUrl}/${environment.patientUrl}/get-doctor-patients/${doctorId}`);

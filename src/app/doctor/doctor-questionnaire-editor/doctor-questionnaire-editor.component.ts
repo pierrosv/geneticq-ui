@@ -56,6 +56,7 @@ export class DoctorQuestionnaireEditorComponent  implements OnInit {
       id: [''],
       name: ['', [Validators.required]],
       description: ['', [Validators.required]],
+      fromTemplateId: [],
     });
     this.doctorId = this.authSrv.getCurrentUserProfile.id;
 
@@ -94,7 +95,7 @@ export class DoctorQuestionnaireEditorComponent  implements OnInit {
           },
           buttonsStyling: true
         });
-        this.router.navigate(['admin/question-pools']);
+        this.router.navigate(['doctor/questionnaires']);
       });
     } else {
       Swal.fire({
