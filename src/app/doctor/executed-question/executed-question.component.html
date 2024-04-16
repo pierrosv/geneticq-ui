@@ -1,0 +1,27 @@
+<div class="row" *ngIf="patientAnswer">
+  <h4>{{'GENERIC.QUESTION' | translate}}</h4>
+  <br/>
+  <div class="row">
+    <div class="col-lg-3">
+      <div class="mb-3">
+        <label >{{patientAnswer.questionTitle}}</label>
+        <div *ngIf="patientAnswer.answerType == 10">
+          <input id="booleanResult" name="booleanResult" class="form-check-input" type="checkbox" [(ngModel)]="this.patientAnswer.booleanResult">
+          <br/>
+        </div>
+        <div *ngIf="patientAnswer.answerType == 20">
+          <input id="numericResult" name="numericResult" type="text" class="form-control" placeholder="{{'GENERIC.RESULT' | translate}}..." [(ngModel)]="this.patientAnswer.numericResult">
+        </div>
+        <div *ngIf="patientAnswer.answerType == 30">
+          <select class="form-select" id="optionResultId" name="optionResultId" [(ngModel)]="this.patientAnswer.optionResultId">
+            <option *ngFor="let answerOption of patientAnswer.options" [value]="answerOption.id">
+              {{answerOption.name}}
+            </option>
+          </select>
+          <br/>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

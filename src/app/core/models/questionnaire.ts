@@ -1,3 +1,5 @@
+import {StaticDataModel} from "./static-data";
+
 export class QuestionnaireListModel {
   id: number;
   fromTemplateId: number;
@@ -44,7 +46,6 @@ export class DoctorQuestionForListModel {
   title: string;
 }
 
-
 export class QuestionnaireExecutionListModel {
   id: number;
   forQuestionnaireId: number;
@@ -58,4 +59,43 @@ export class ExecuteQuestionnaireModel {
   forQuestionnaireId: number;
   forPatientId: number;
   byDoctorId: number;
+}
+
+export class QuestionnaireExecutionModel {
+  id: number;
+  byDoctorId: number;
+  forQuestionnaireId: number;
+  forPatientId: number;
+  executionDate: Date;
+  forPatientName: string;
+  forQuestionnaireName: string;
+  notes: string;
+  answers: PatientQuestionAnswerModel[];
+  subAnswers: PatientSubQuestionAnswerModel[];
+}
+
+export class PatientQuestionAnswerModel {
+  id: number;
+  answerType: number;
+  appearanceOrder: number;
+  forExecutionId: number;
+  forQuestionId: number;
+  optionResultId: number;
+  questionTitle: string;
+  booleanResult: boolean;
+  numericResult: number;
+  options: StaticDataModel[];
+}
+
+export class PatientSubQuestionAnswerModel {
+  id: number;
+  answerType: number;
+  appearanceOrder: number;
+  forExecutionId: number;
+  forQuestionId: number;
+  optionResultId: number;
+  questionTitle: string;
+  booleanResult: boolean;
+  numericResult: number;
+  options: StaticDataModel[];
 }

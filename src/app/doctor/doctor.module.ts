@@ -16,6 +16,7 @@ import { DoctorQuestionEditorComponent } from './doctor-question-editor/doctor-q
 import { ExecuteQuestionnaireComponent } from './execute-questionnaire/execute-questionnaire.component';
 import { QuestionnaireResultsComponent } from './questionnaire-results/questionnaire-results.component';
 import { QuestionnaireExecutionComponent } from './questionnaire-execution/questionnaire-execution.component';
+import { ExecutedQuestionComponent } from './executed-question/executed-question.component';
 
 
 @NgModule({
@@ -28,7 +29,8 @@ import { QuestionnaireExecutionComponent } from './questionnaire-execution/quest
     DoctorQuestionEditorComponent,
     ExecuteQuestionnaireComponent,
     QuestionnaireResultsComponent,
-    QuestionnaireExecutionComponent],
+    QuestionnaireExecutionComponent,
+    ExecutedQuestionComponent],
   exports: [
     DoctorProfileComponent
   ],

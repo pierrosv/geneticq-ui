@@ -1,1 +1,67 @@
-<p>questionnaire-execution works!</p>
+<div class="container-fluid">
+
+  <!-- start page title -->
+  <app-page-title title="{{'MENUITEMS.DOCTOR.QUESTIONNAIRE' | translate}}"></app-page-title>
+  <!-- end page title -->
+
+  <div class="row" *ngIf="execution">
+    <div class="col-lg-12">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title mb-4">{{action}}</h4>
+          <form (ngSubmit)="save()" [formGroup]="questionnaireForm">
+            <div data-repeater-list="outer-group" class="outer">
+              <div data-repeater-item class="outer">
+                <div class="row mb-4">
+                    <label class="col-form-label col-lg-2">{{'GENERIC.QUESTIONNAIRE' | translate}}</label>
+                  <div class="col-lg-10">
+                    <label class="col-form-label col-lg-2">{{execution.forQuestionnaireName}}</label>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label class="col-form-label col-lg-2">{{'GENERIC.PATIENT' | translate}}</label>
+                  <div class="col-lg-10">
+                    <label class="col-form-label col-lg-2">{{execution.forPatientName}}</label>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label class="col-form-label col-lg-2">{{'GENERIC.EXECUTION_DATE' | translate}}</label>
+                  <div class="col-lg-10">
+                    <label class="col-form-label col-lg-2">{{execution.executionDate}}</label>
+                  </div>
+                </div>
+                <div class="row mb-4">
+                  <label for="notes" class="col-form-label col-lg-2">{{'GENERIC.NOTES' | translate}}</label>
+                  <div class="col-lg-10">
+                    <input id="notes" name="notes" type="text" formControlName="notes" class="form-control" placeholder="{{'GENERIC.NOTES' | translate}}...">
+                  </div>
+                </div>
+              </div>
+              <div class="row mb-4" *ngIf="this.execution && this.execution.answers.length > 0">
+                <accordion [closeOthers]="true" class="accordion" [isAnimated]="true">
+                  <accordion-group heading="{{'GENERIC.QUESTION_NO' | translate}} # {{question.appearanceOrder}}" class="accordion-item" *ngFor="let question of this.execution.answers">
+                    <app-executed-question
+                      [patientAnswer]="question"
+                      [questionAnswerTypes]="questionAnswerTypes">
+
+                    </app-executed-question>
+                  </accordion-group>
+                </accordion>
+              </div>
+            </div>
+
+            <div class="row justify-content-end">
+              <div class="col-lg-10">
+                <button type="submit" class="btn btn-primary">{{'GENERIC.SAVE' | translate}}</button>
+              </div>
+            </div>
+          </form>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end row -->
+
+</div> <!-- container-fluid -->

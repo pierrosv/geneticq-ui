@@ -3,7 +3,7 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {environment} from "../../../environments/environment";
 import {PatientForListModel, PatientModel} from "../models/patient";
-import {ExecuteQuestionnaireModel, QuestionnaireExecutionListModel, QuestionnaireListModel, QuestionnaireModel} from "../models/questionnaire";
+import {ExecuteQuestionnaireModel, QuestionnaireExecutionListModel, QuestionnaireExecutionModel, QuestionnaireListModel, QuestionnaireModel} from "../models/questionnaire";
 import {StatsModel} from "../models/stats";
 import {DoctorModel} from "../models/application-user";
 
@@ -78,5 +78,14 @@ export class DoctorService {
 
   deleteQuestionnaireExecutionById(id: number): Observable<boolean> {
     return this.http.delete<boolean>(`${environment.apiUrl}/${environment.doctorUrl}/delete-execution/${id}`);
+  }
+
+  getQuestionnaireExecutionById( id: number): Observable<QuestionnaireExecutionModel> {
+    return this.http.get<QuestionnaireExecutionModel>(`${environment.apiUrl}/${environment.doctorUrl}/get-questionnaire-execution/${id}`);
+  }
+
+  saveQuestionnaireExecution(executionModel: QuestionnaireExecutionModel):Observable<QuestionnaireExecutionModel> {
+    const fullUrl = `${environment.apiUrl}/${environment.doctorUrl}/save-questionnaire-execution`;
+    return this.http.put<QuestionnaireExecutionModel>(fullUrl, executionModel);
   }
 }
